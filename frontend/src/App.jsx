@@ -19,7 +19,7 @@ const App = () => {
       return <PageLoader />
 
   return (
-    <div className="min-h-screen bg-slate-800 relative flex items-center justify-center p-4 overflow-hidden">
+    <div className="min-h-screen bg-slate-800 relative flex items-center justify-center p-4 pb-14 overflow-hidden">
     {/* background design here */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#3232322d_1px,transparent_1px),linear-gradient(to_bottom,#3232322d_1px,transparent_1px)] bg-[size:14px_24px]"></div>
       <div className="absolute top-0 -left-4 size-96 bg-rose-500 opacity-20 blur-[100px]"></div>
@@ -30,8 +30,17 @@ const App = () => {
         <Route path="/login" element={!authUser ? <LoginPage /> : <Navigate to={"/"} />} />
         <Route path="/signup" element={!authUser ? <SignUpPage /> : <Navigate to={"/"} />} />
       </Routes>
+     
+      {/* Bottom bar / Footer */}
+      <div className="absolute bottom-0 h-14 w-full bg-gray-900 flex items-center justify-center border-t border-gray-700 z-20">
+        <span className="text-green-400 font-semibold text-sm">
+          © All copy rights reserved @ MNJ_Syntex_Error
+        </span>
+      </div>
       <Toaster/>
+      
     </div>
+    
   );
 };
 
