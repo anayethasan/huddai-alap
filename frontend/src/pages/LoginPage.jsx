@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { useAuthStore } from "../store/use.AuthStore";
+import { useAuthStore } from './../store/use.AuthStore';
 import BorderAnimatedContainer from "../components/BorderAnimatedContainer";
 import { Link } from "react-router-dom";
 import {
+
   MessageCircleIcon,
   MailIcon,
   LoaderIcon,
@@ -15,7 +16,7 @@ const LoginPage = () => {
         email: "",
         password: "",
       });
-      const { login, islogginIn } = useAuthStore();
+      const { login, isLoggingIn } = useAuthStore(); 
       const handelSubmit = (e) => {
         e.preventDefault();
         login(formData);
@@ -76,9 +77,9 @@ const LoginPage = () => {
                   <button
                     className="auth-btn"
                     type="submit"
-                    disabled={islogginIn}
+                    disabled={isLoggingIn}
                   >
-                    {islogginIn ? (
+                    {isLoggingIn ? (
                       <LoaderIcon className="w-full h-5 animate-spin text-center" />
                     ) : (
                       "Login Now"
