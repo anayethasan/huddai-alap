@@ -7,6 +7,7 @@ import {
   LockIcon,
   MailIcon,
   UserIcon,
+  LoaderIcon,  // ✅ FIXED - Added missing import
 } from "lucide-react";
 
 const SignUpPage = () => {
@@ -16,10 +17,12 @@ const SignUpPage = () => {
     password: "",
   });
   const { signup, isSigningUp } = useAuthStore();
+  
   const handelSubmit = (e) => {
     e.preventDefault();
     signup(formData);
   };
+
   return (
     <div className="w-full flex items-center justify-center p-4 bg-slate-800">
       <div className="relative w-full max-w-6xl md:h-[800px] h-[650px]">
@@ -32,7 +35,7 @@ const SignUpPage = () => {
                 <div className="text-center mb-8">
                   <MessageCircleIcon className="w-12 h-12 mx-auto text-slate-600/30" />
                   <h2 className="text-2xl font-bold text-slate-200 mb-2">
-                    Create a Account
+                    Create an Account
                   </h2>
                   <p className="text-slate-400">Sign up for a new account</p>
                 </div>
@@ -52,6 +55,7 @@ const SignUpPage = () => {
                         }
                         className="input"
                         placeholder="Enter your name here"
+                        disabled={isSigningUp}
                       />
                     </div>
                   </div>
@@ -70,6 +74,7 @@ const SignUpPage = () => {
                         }
                         className="input"
                         placeholder="example@gmail.com"
+                        disabled={isSigningUp}
                       />
                     </div>
                   </div>
@@ -88,6 +93,7 @@ const SignUpPage = () => {
                         }
                         className="input"
                         placeholder="Enter your password here"
+                        disabled={isSigningUp}
                       />
                     </div>
                   </div>
@@ -98,16 +104,16 @@ const SignUpPage = () => {
                     disabled={isSigningUp}
                   >
                     {isSigningUp ? (
-                      <LoaderIcon className="w-full h-5 animate-spin text-center" />
+                      <LoaderIcon className="w-5 h-5 mx-auto animate-spin" />
                     ) : (
-                      "Create a Account"
+                      "Create an Account"
                     )}
                   </button>
                 </form>
                 {/* login check */}
                 <div className="mt-6 text-center">
                   <Link to={"/login"} className="auth-link">
-                    Already have an account ? Login
+                    Already have an account? Login
                   </Link>
                 </div>
               </div>
@@ -131,7 +137,6 @@ const SignUpPage = () => {
                     <span className="auth-badge">Easy Setup</span>
                     <span className="auth-badge">Private</span>
                   </div>
-
                 </div>
               </div>
             </div>
